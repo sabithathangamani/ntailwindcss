@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    .highlight{
+        background-color: black;
+        color:orange;
+        border:10px solid rgb(100, 199, 133);
+        font-size: x-large;
+    }
+</style>
+<body>
+    <h1 >Add / Remove item in a list using DOM</h1>
+   
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+     <button onClick="additem()" >Add</button>
+    <button onclick="removeitem()">Remove</button>
+    <p id="hide">this is hidden content</p>
+    <button onclick="hide()">Hide</button>
+    <p id="highlight">This is Highlighted message.</p>
+    <button onclick="highlight()">Highlight</button>
+    <p id="status">status:off</p>
+    <button onclick="status()">change status</button>
+
+    <p class="t">T1</p>
+    <p class="t">T1</p>
+    <p class="t">T1</p>
+    <button onclick="changetext()">change text</button>
+</body>
+<script>
+function changetext(){
+    const ele=document.querySelectorAll('.t').textContent="updated text"
+   console.log( ele)
+// ele.textContent="updated text"
+//   const ele=document.getElementsByClassName("t")
+//    console.log(ele)
+
+//   for(i=0;i<ele.length;i++){
+//     console.log(ele[i])
+//     ele[i].textContent="updated text"
+//   }
+}
+
+
+    function removeitem(){
+        document.getElementById("list")
+
+        if(list.lastChild){
+            list.removeChild(list.lastChild)
+        }
+
+    }
+
+    function additem(){
+        const newItem=document.createElement("li")
+        document.getElementById("list").appendChild(newItem).innerText="Item"
+    }
+
+    function hide(){
+       const ele= document.getElementById("hide")
+       ele.style.display="none"
+       
+    }
+
+    function highlight(){
+       const ele= document.getElementById("highlight")
+       ele.classList.add("highlight")
+    }
+    function status(){
+        const ele=document.getElementById("status")
+
+        if(ele.textContent==="status:off"){
+        ele.textContent="statu:on"}
+        else{
+            ele.textContent="status:off"
+        }
+    }
+</script>
+</html>
